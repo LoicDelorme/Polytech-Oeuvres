@@ -46,7 +46,7 @@ public class SaleArtwork implements Serializable {
 	 */
 	@ManyToOne
 	@JoinColumn(name = "sale_artwork_state_id")
-	private ArtworkState artworkState;
+	private ArtworkState state;
 
 	/**
 	 * The price.
@@ -100,22 +100,22 @@ public class SaleArtwork implements Serializable {
 	}
 
 	/**
-	 * Get the artwork state.
+	 * Get the state.
 	 * 
-	 * @return The artwork state.
+	 * @return The state.
 	 */
-	public ArtworkState getArtworkState() {
-		return this.artworkState;
+	public ArtworkState getState() {
+		return this.state;
 	}
 
 	/**
-	 * Set the artwork state.
+	 * Set the state.
 	 * 
-	 * @param artworkState
-	 *            The artwork state.
+	 * @param state
+	 *            The state.
 	 */
-	public void setArtworkState(ArtworkState artworkState) {
-		this.artworkState = artworkState;
+	public void setState(ArtworkState state) {
+		this.state = state;
 	}
 
 	/**
