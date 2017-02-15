@@ -1,11 +1,14 @@
 package fr.polytech.oeuvres.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -45,6 +48,12 @@ public class LoanArtwork implements Serializable {
 	@NotNull
 	@Column(name = "loan_artwork_duration")
 	private int duration;
+
+	/**
+	 * The members.
+	 */
+	@ManyToMany(mappedBy = "loanArtworks")
+	private List<Member> members = new ArrayList<Member>();
 
 	/**
 	 * Create a loan artwork entity.
@@ -107,5 +116,44 @@ public class LoanArtwork implements Serializable {
 	 */
 	public void setDuration(int duration) {
 		this.duration = duration;
+	}
+
+	/**
+	 * Get the members.
+	 * 
+	 * @return The members.
+	 */
+	public List<Member> getMembers() {
+		return this.members;
+	}
+
+	/**
+	 * Set the members.
+	 * 
+	 * @param members
+	 *            The members.
+	 */
+	public void setMembers(List<Member> members) {
+		this.members = members;
+	}
+
+	/**
+	 * Add a member.
+	 * 
+	 * @param member
+	 *            The member.
+	 */
+	public void addMember(Member member) {
+		this.members.add(member);
+	}
+
+	/**
+	 * Remove a member.
+	 * 
+	 * @param member
+	 *            The member.
+	 */
+	public void removeMember(Member member) {
+		this.members.remove(member);
 	}
 }
