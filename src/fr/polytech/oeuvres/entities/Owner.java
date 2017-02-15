@@ -1,11 +1,15 @@
 package fr.polytech.oeuvres.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -45,6 +49,12 @@ public class Owner implements Serializable {
 	@NotNull
 	@Column(name = "owner_firstname")
 	private String firstname;
+
+	/**
+	 * The sale artworks.
+	 */
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	private List<SaleArtwork> saleArtworks = new ArrayList<SaleArtwork>();
 
 	/**
 	 * Create an owner entity.
@@ -107,5 +117,44 @@ public class Owner implements Serializable {
 	 */
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
+	}
+
+	/**
+	 * Get the sale artworks.
+	 * 
+	 * @return The sale artworks.
+	 */
+	public List<SaleArtwork> getSaleArtworks() {
+		return this.saleArtworks;
+	}
+
+	/**
+	 * Set the sale artworks.
+	 * 
+	 * @param saleArtworks
+	 *            The sale artworks.
+	 */
+	public void setSaleArtworks(List<SaleArtwork> saleArtworks) {
+		this.saleArtworks = saleArtworks;
+	}
+
+	/**
+	 * Add a sale artwork.
+	 * 
+	 * @param saleArtwork
+	 *            The sale artwork.
+	 */
+	public void addSaleArtwork(SaleArtwork saleArtwork) {
+		this.saleArtworks.add(saleArtwork);
+	}
+
+	/**
+	 * Remove a sale artwork.
+	 * 
+	 * @param saleArtwork
+	 *            The sale artwork.
+	 */
+	public void removeSaleArtwork(SaleArtwork saleArtwork) {
+		this.saleArtworks.remove(saleArtwork);
 	}
 }
