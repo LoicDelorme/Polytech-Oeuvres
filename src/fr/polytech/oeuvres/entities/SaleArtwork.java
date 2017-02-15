@@ -1,12 +1,15 @@
 package fr.polytech.oeuvres.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -54,6 +57,12 @@ public class SaleArtwork implements Serializable {
 	@NotNull
 	@Column(name = "sale_artwork_price")
 	private double price;
+
+	/**
+	 * The owners.
+	 */
+	@ManyToMany(mappedBy = "saleArtworks")
+	private List<Owner> owners = new ArrayList<Owner>();
 
 	/**
 	 * Create a sale artwork entity.
@@ -135,5 +144,44 @@ public class SaleArtwork implements Serializable {
 	 */
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	/**
+	 * Get the owners.
+	 * 
+	 * @return The owners.
+	 */
+	public List<Owner> getOwners() {
+		return this.owners;
+	}
+
+	/**
+	 * Set the owners.
+	 * 
+	 * @param owners
+	 *            The owners.
+	 */
+	public void setOwners(List<Owner> owners) {
+		this.owners = owners;
+	}
+
+	/**
+	 * Add an owner.
+	 * 
+	 * @param owner
+	 *            The owner.
+	 */
+	public void addOwner(Owner owner) {
+		this.owners.add(owner);
+	}
+
+	/**
+	 * Remove an owner.
+	 * 
+	 * @param owner
+	 *            The owner.
+	 */
+	public void removeOwner(Owner owner) {
+		this.owners.remove(owner);
 	}
 }
