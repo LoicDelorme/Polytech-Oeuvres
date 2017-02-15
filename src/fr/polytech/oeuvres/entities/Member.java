@@ -1,11 +1,15 @@
 package fr.polytech.oeuvres.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -66,6 +70,12 @@ public class Member implements Serializable {
 	@NotNull
 	@Column(name = "member_city")
 	private String city;
+
+	/**
+	 * The loan artworks.
+	 */
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	private List<LoanArtwork> loanArtworks = new ArrayList<LoanArtwork>();
 
 	/**
 	 * Create a member entity.
@@ -185,5 +195,44 @@ public class Member implements Serializable {
 	 */
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	/**
+	 * Get the loan artworks.
+	 * 
+	 * @return The loan artworks.
+	 */
+	public List<LoanArtwork> getLoanArtworks() {
+		return this.loanArtworks;
+	}
+
+	/**
+	 * Set the loan artworks.
+	 * 
+	 * @param loanArtworks
+	 *            The loan artworks.
+	 */
+	public void setLoanArtworks(List<LoanArtwork> loanArtworks) {
+		this.loanArtworks = loanArtworks;
+	}
+
+	/**
+	 * Add a loan artwork.
+	 * 
+	 * @param loanArtwork
+	 *            The loan artwork.
+	 */
+	public void addLoanArtwork(LoanArtwork loanArtwork) {
+		this.loanArtworks.add(loanArtwork);
+	}
+
+	/**
+	 * Remove a loan artwork.
+	 * 
+	 * @param loanArtwork
+	 *            The loan artwork.
+	 */
+	public void removeLoanArtwork(LoanArtwork loanArtwork) {
+		this.loanArtworks.add(loanArtwork);
 	}
 }
