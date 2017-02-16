@@ -121,7 +121,7 @@ public class MemberController extends AbstractController {
 				break;
 			default:
 				destinationPage = "/error.jsp";
-				request.setAttribute("error", String.format("[%s] is not a valid action!", actionName));
+				request.setAttribute("message", String.format("[%s] is not a valid action!", actionName));
 				break;
 		}
 
