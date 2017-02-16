@@ -33,7 +33,7 @@ public class DatabaseManager {
 	 */
 	public Session getSession() {
 		if (sessionFactory == null) {
-			Configuration configuration = new Configuration().configure();
+			Configuration configuration = new Configuration().configure("/fr/polytech/oeuvres/resources/hibernate.cfg.xml");
 			configuration.addAnnotatedClass(ArtworkState.class);
 			configuration.addAnnotatedClass(Loan.class);
 			configuration.addAnnotatedClass(LoanArtwork.class);
