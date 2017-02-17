@@ -103,7 +103,8 @@ CREATE TABLE loan (
   loan_duration int NOT NULL,
   member_id int NOT NULL,
   FOREIGN KEY (loan_artwork_id) REFERENCES loan_artwork(loan_artwork_id),
-  FOREIGN KEY (member_id) REFERENCES member(member_id)
+  FOREIGN KEY (member_id) REFERENCES member(member_id),
+  PRIMARY KEY (loan_artwork_id, member_id, loan_date)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -116,5 +117,6 @@ CREATE TABLE purchase (
   owner_id int NOT NULL,
   FOREIGN KEY (sale_artwork_id) REFERENCES sale_artwork(sale_artwork_id),
   FOREIGN KEY (owner_id) REFERENCES owner(owner_id),
-  FOREIGN KEY (purchase_status_id) REFERENCES purchase_status_lov(purchase_status_id)
+  FOREIGN KEY (purchase_status_id) REFERENCES purchase_status_lov(purchase_status_id),
+  PRIMARY KEY (sale_artwork_id, owner_id, purchase_status_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
