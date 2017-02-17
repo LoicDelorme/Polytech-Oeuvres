@@ -102,7 +102,7 @@ public class SaleArtworkController extends AbstractController {
 			case INSERT:
 				SaleArtwork saleArtworkToInsert = new SaleArtwork();
 				saleArtworkToInsert.setTitle(request.getParameter("title"));
-				saleArtworkToInsert.setState(this.artworkStateDaoServices.get(request.getParameter("stateId")));
+				saleArtworkToInsert.setState(this.artworkStateDaoServices.get(request.getParameter("artworkStateId")));
 				saleArtworkToInsert.setPrice(Double.parseDouble(request.getParameter("price")));
 				this.saleArtworkDaoServices.insert(saleArtworkToInsert);
 				request.setAttribute("message", "The sale artwork was successfully added!");
@@ -111,7 +111,7 @@ public class SaleArtworkController extends AbstractController {
 			case UPDATE:
 				SaleArtwork saleArtworkToUpdate = this.saleArtworkDaoServices.get(request.getParameter("id"));
 				saleArtworkToUpdate.setTitle(request.getParameter("title"));
-				saleArtworkToUpdate.setState(this.artworkStateDaoServices.get(request.getParameter("stateId")));
+				saleArtworkToUpdate.setState(this.artworkStateDaoServices.get(request.getParameter("artworkStateId")));
 				saleArtworkToUpdate.setPrice(Double.parseDouble(request.getParameter("price")));
 				this.saleArtworkDaoServices.update(saleArtworkToUpdate);
 				request.setAttribute("message", "The sale artwork was successfully updated!");
