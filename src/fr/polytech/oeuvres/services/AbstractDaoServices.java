@@ -2,6 +2,8 @@ package fr.polytech.oeuvres.services;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaQuery;
+
 import org.hibernate.Session;
 
 import fr.polytech.oeuvres.persistence.DatabaseManager;
@@ -14,7 +16,7 @@ import fr.polytech.oeuvres.persistence.DatabaseManager;
  *            The type of the object to handle.
  * @since 1.0.0
  */
-public abstract class AbstractDaoServices<T> implements DaoServices<T> {
+public class AbstractDaoServices<T> implements DaoServices<T> {
 
 	/**
 	 * The database manager.
@@ -37,13 +39,6 @@ public abstract class AbstractDaoServices<T> implements DaoServices<T> {
 		this.entityClass = entityClass;
 	}
 
-	/**
-	 * Get the table name.
-	 * 
-	 * @return The table name.
-	 */
-	public abstract String getTableName();
-
 	@Override
 	public T get(Object id) {
 		Session session = this.databaseManager.getSession();
@@ -62,7 +57,8 @@ public abstract class AbstractDaoServices<T> implements DaoServices<T> {
 		Session session = this.databaseManager.getSession();
 
 		session.beginTransaction();
-		List<T> entities = session.createQuery("from " + getTableName(), this.entityClass).getResultList();
+		CriteriaQuery<T> criteriaQuery = session.getCriteriaBuilder().createQuery(this.entityClass);
+		List<T> entities = session.createQuery(criteriaQuery.select(criteriaQuery.from(this.entityClass))).getResultList();
 		session.getTransaction().commit();
 
 		session.close();
