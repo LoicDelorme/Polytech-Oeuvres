@@ -11,19 +11,9 @@ import fr.polytech.oeuvres.entities.SaleArtwork;
 public class SaleArtworkDaoServices extends AbstractDaoServices<SaleArtwork> {
 
 	/**
-	 * The table name.
-	 */
-	public static final String TABLE_NAME = "sale_artwork";
-
-	/**
 	 * Create a sale artwork DAO services.
 	 */
 	public SaleArtworkDaoServices() {
 		super(SaleArtwork.class);
-	}
-
-	@Override
-	public String getTableName() {
-		return TABLE_NAME;
 	}
 }

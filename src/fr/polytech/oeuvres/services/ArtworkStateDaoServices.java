@@ -11,19 +11,9 @@ import fr.polytech.oeuvres.entities.ArtworkState;
 public class ArtworkStateDaoServices extends AbstractDaoServices<ArtworkState> {
 
 	/**
-	 * The table name.
-	 */
-	public static final String TABLE_NAME = "artwork_state_lov";
-
-	/**
 	 * Create an artwork state DAO services.
 	 */
 	public ArtworkStateDaoServices() {
 		super(ArtworkState.class);
-	}
-
-	@Override
-	public String getTableName() {
-		return TABLE_NAME;
 	}
 }

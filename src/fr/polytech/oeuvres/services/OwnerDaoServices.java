@@ -11,19 +11,9 @@ import fr.polytech.oeuvres.entities.Owner;
 public class OwnerDaoServices extends AbstractDaoServices<Owner> {
 
 	/**
-	 * The table name.
-	 */
-	public static final String TABLE_NAME = "owner";
-
-	/**
 	 * Create an owner DAO services.
 	 */
 	public OwnerDaoServices() {
 		super(Owner.class);
-	}
-
-	@Override
-	public String getTableName() {
-		return TABLE_NAME;
 	}
 }
