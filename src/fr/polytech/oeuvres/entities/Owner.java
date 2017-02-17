@@ -7,9 +7,12 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -54,7 +57,8 @@ public class Owner implements Serializable {
 	/**
 	 * The sale artworks.
 	 */
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.ALL })
+	@JoinTable(name = "purchase", joinColumns = { @JoinColumn(name = "owner_id") }, inverseJoinColumns = { @JoinColumn(name = "sale_artwork_id") })
 	private List<SaleArtwork> saleArtworks = new ArrayList<SaleArtwork>();
 
 	/**
