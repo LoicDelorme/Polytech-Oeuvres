@@ -43,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Polytech Lyon</a>
+                <a class="navbar-brand" href="index.jsp">Polytech Lyon</a>
             </div>
             
             <ul class="nav navbar-top-links navbar-right">
@@ -70,16 +70,16 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-list-alt"></i> Features</a>
+                            <a href="index.jsp"><i class="glyphicon glyphicon-list-alt"></i> Features</a>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-user"></i> Member<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List all members</a>
+                                    <a href="MemberController?action=list">List all members</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add a new member</a>
+                                    <a href="MemberController?action=addForm">Add a new member</a>
                                 </li>
                             </ul>
                         </li>
@@ -87,10 +87,10 @@
                             <a href="#"><i class="glyphicon glyphicon-user"></i> Owner<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List all owners</a>
+                                    <a href="OwnerController?action=list">List all owners</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add a new owner</a>
+                                    <a href="OwnerController?action=addForm">Add a new owner</a>
                                 </li>
                             </ul>
                         </li>
@@ -98,10 +98,10 @@
                             <a href="#"><i class="glyphicon glyphicon-book"></i> Loan Artwork<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List all loan artworks</a>
+                                    <a href="LoanArtworkController?action=list">List all loan artworks</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add a new loan artwork</a>
+                                    <a href="LoanArtworkController?action=addForm">Add a new loan artwork</a>
                                 </li>
                             </ul>
                         </li>
@@ -109,10 +109,10 @@
                             <a href="#"><i class="glyphicon glyphicon-book"></i> Sale Artwork<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List all sale artworks</a>
+                                    <a href="SaleArtworkController?action=list">List all sale artworks</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add a new sale artwork</a>
+                                    <a href="SaleArtworkController?action=addForm">Add a new sale artwork</a>
                                 </li>
                             </ul>
                         </li>
@@ -120,10 +120,10 @@
                             <a href="#"><i class="glyphicon glyphicon-tasks"></i> Artwork State<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List all artwork states</a>
+                                    <a href="ArtworkStateController?action=list">List all artwork states</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add a new artwork state</a>
+                                    <a href="ArtworkStateController?action=addForm">Add a new artwork state</a>
                                 </li>
                             </ul>
                         </li>
@@ -131,10 +131,10 @@
                             <a href="#"><i class="glyphicon glyphicon-tasks"></i> Purchase Status<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List all purchase status</a>
+                                    <a href="PurchaseStatusController?action=list">List all purchase status</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add a new purchase status</a>
+                                    <a href="PurchaseStatusController?action=addForm">Add a new purchase status</a>
                                 </li>
                             </ul>
                         </li>
