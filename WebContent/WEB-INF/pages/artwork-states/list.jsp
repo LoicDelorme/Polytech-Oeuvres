@@ -29,8 +29,7 @@
 				<core:forEach items="${artworkStates}" var="artworkState">
 					<tr>
 						<td><a href="ArtworkStateController?action=overview&id=${artworkState.id}">${artworkState.id}</a></td>
-						<td>${owner.lastname}</td>
-						<td>${owner.firstname}</td>
+						<td>${artworkState.label}</td>
 						<td>
 							<a class="btn btn-warning" href="ArtworkStateController?action=updateForm&id=${artworkState.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
 							<a class="btn btn-danger" href="ArtworkStateController?action=delete&id=${artworkState.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
