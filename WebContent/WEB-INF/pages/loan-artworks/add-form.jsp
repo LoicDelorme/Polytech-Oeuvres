@@ -20,14 +20,14 @@
 	    <core:url value="/js/loan-artwork-form.js" var="js_loan_artwork_form" />
 	    <script src="${js_loan_artwork_form}"></script>
 	    
-    	<form name="loanArtworkForm" method="post" action="" onsubmit="return checkInputs()">
+    	<form name="loanArtworkForm" method="post" action="LoanArtworkController?action=insert" onsubmit="return checkInputs()">
 			<div class="form-group">
 				<label for="title">Title</label>
-				<input type="text" class="form-control" id="title" placeholder="Enter your title">
+				<input type="text" class="form-control" id="title" name="title" placeholder="Enter your title">
 		    </div>
 		    <div class="form-group">
 				<label for="duration">Duration</label>
-				<input type="number" class="form-control" id="duration" placeholder="Enter your duration">
+				<input type="number" class="form-control" id="duration" name="duration" placeholder="Enter your duration">
 		    </div>
 		    <button type="submit" class="btn btn-primary">Submit</button>
 		</form>

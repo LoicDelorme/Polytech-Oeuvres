@@ -20,15 +20,14 @@
 	    <core:url value="/js/sale-artwork-form.js" var="js_sale_artwork_form" />
 	    <script src="${js_sale_artwork_form}"></script>
 	    
-    	<form name="saleArtworkForm" method="post" action="" onsubmit="return checkInputs()">
+    	<form name="saleArtworkForm" method="post" action="SaleArtworkController?action=insert" onsubmit="return checkInputs()">
 			<div class="form-group">
 				<label for="title">Title</label>
-				<input type="text" class="form-control" id="title" placeholder="Enter your title">
+				<input type="text" class="form-control" id="title" name="title" placeholder="Enter your title">
 		    </div>
 		    <div class="form-group">
-				<label for="artworkStateId">Artwork state</label>
-				<select class="form-control" id="artworkStateId">
-					<option>1</option>
+				<label for="artworkStateId">State</label>
+				<select class="form-control" id="artworkStateId" name="artworkStateId">
 					<core:forEach items="${artworkStates}" var="artworkState">
 						<option value="${artworkState.id}">${artworkState.label}</option>
 					</core:forEach>
@@ -36,7 +35,7 @@
 		    </div>
 		    <div class="form-group">
 				<label for="price">Price</label>
-				<input type="number" class="form-control" id="price" placeholder="Enter your price">
+				<input type="number" class="form-control" id="price" name="price" placeholder="Enter your price">
 		    </div>
 		    <button type="submit" class="btn btn-primary">Submit</button>
 		</form>

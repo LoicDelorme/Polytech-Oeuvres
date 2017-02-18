@@ -20,14 +20,14 @@
 	    <core:url value="/js/owner-form.js" var="js_owner_form" />
 	    <script src="${js_owner_form}"></script>
     
-    	<form name="ownerForm" method="post" action="" onsubmit="return checkInputs()">
+    	<form name="ownerForm" method="post" action="OwnerController?action=insert" onsubmit="return checkInputs()">
 			<div class="form-group">
 				<label for="lastname">Last name</label>
-				<input type="text" class="form-control" id="lastname" placeholder="Enter your last name">
+				<input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your last name">
 		    </div>
 		    <div class="form-group">
 				<label for="firstname">First name</label>
-				<input type="text" class="form-control" id="firstname" placeholder="Enter your first name">
+				<input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter your first name">
 		    </div>
 		    <button type="submit" class="btn btn-primary">Submit</button>
 		</form>
