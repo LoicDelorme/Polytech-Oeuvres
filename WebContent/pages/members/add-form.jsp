@@ -17,8 +17,8 @@
     </jsp:attribute>
     
     <jsp:attribute name="body_content">
-	    <core:url value="/js/member-add-form.js" var="js_member_add_form" />
-	    <script src="${js_member_add_form}"></script>
+	    <core:url value="/js/member-form.js" var="js_member_form" />
+	    <script src="${js_member_form}"></script>
     
     	<form name="memberForm" method="post" action="" onsubmit="return checkInputs()">
 			<div class="form-group">

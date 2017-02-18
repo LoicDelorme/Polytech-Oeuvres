@@ -17,8 +17,8 @@
     </jsp:attribute>
     
     <jsp:attribute name="body_content">
-	    <core:url value="/js/sale-artwork-add-form.js" var="js_sale_artwork_add_form" />
-	    <script src="${js_sale_artwork_add_form}"></script>
+	    <core:url value="/js/sale-artwork-form.js" var="js_sale_artwork_form" />
+	    <script src="${js_sale_artwork_form}"></script>
 	    
     	<form name="saleArtworkForm" method="post" action="" onsubmit="return checkInputs()">
 			<div class="form-group">

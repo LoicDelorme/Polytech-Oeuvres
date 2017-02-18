@@ -17,8 +17,8 @@
     </jsp:attribute>
     
     <jsp:attribute name="body_content">
-	    <core:url value="/js/owner-add-form.js" var="js_owner_add_form" />
-	    <script src="${js_owner_add_form}"></script>
+	    <core:url value="/js/owner-form.js" var="js_owner_form" />
+	    <script src="${js_owner_form}"></script>
     
     	<form name="ownerForm" method="post" action="" onsubmit="return checkInputs()">
 			<div class="form-group">
