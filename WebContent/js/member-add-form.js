@@ -2,12 +2,12 @@ function checkInputs() {
 	var error = false;
 	
     if (document.memberForm.lastname.value == "") {
-    	alert("Please enter your lastname");
+    	alert("Please enter your last name");
     	error = true;
     }
     
     if (document.memberForm.firstname.value == "") {
-    	alert("Please enter your firstname");
+    	alert("Please enter your first name");
     	error = true;
     }
     
