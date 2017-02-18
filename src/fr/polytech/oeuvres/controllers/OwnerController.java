@@ -79,37 +79,41 @@ public class OwnerController extends AbstractController {
 		String destinationPage = null;
 		switch (actionName) {
 			case OVERVIEW:
-				request.setAttribute("owner", this.ownerDaoServices.get(request.getParameter("id")));
-				destinationPage = "/pages/owners/overview.jsp";
+				request.setAttribute("owner", this.ownerDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+				destinationPage = "/WEB-INF/pages/pages/owners/overview.jsp";
 				break;
 			case LIST:
 				request.setAttribute("owners", this.ownerDaoServices.getAll());
-				destinationPage = "/pages/owners/list.jsp";
+				destinationPage = "/WEB-INF/pages/owners/list.jsp";
 				break;
 			case ADD_FORM:
-				destinationPage = "/pages/owners/addForm.jsp";
+				destinationPage = "/WEB-INF/pages/owners/add-form.jsp";
 				break;
 			case UPDATE_FORM:
-				destinationPage = "/pages/owners/updateForm.jsp";
+				request.setAttribute("owner", this.ownerDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+				destinationPage = "/WEB-INF/pages/owners/update-form.jsp";
 				break;
 			case INSERT:
 				Owner ownerToInsert = new Owner();
 				ownerToInsert.setLastname(request.getParameter("lastname"));
 				ownerToInsert.setFirstname(request.getParameter("firstname"));
 				this.ownerDaoServices.insert(ownerToInsert);
+
 				request.setAttribute("message", "The owner was successfully added!");
 				destinationPage = "/index.jsp";
 				break;
 			case UPDATE:
-				Owner ownerToUpdate = this.ownerDaoServices.get(request.getParameter("id"));
+				Owner ownerToUpdate = this.ownerDaoServices.get(Integer.parseInt(request.getParameter("id")));
 				ownerToUpdate.setLastname(request.getParameter("lastname"));
 				ownerToUpdate.setFirstname(request.getParameter("firstname"));
 				this.ownerDaoServices.update(ownerToUpdate);
+
 				request.setAttribute("message", "The owner was successfully updated!");
 				destinationPage = "/index.jsp";
 				break;
 			case DELETE:
-				this.ownerDaoServices.delete(this.ownerDaoServices.get(request.getParameter("id")));
+				this.ownerDaoServices.delete(this.ownerDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+
 				request.setAttribute("message", "The owner was successfully deleted!");
 				destinationPage = "/index.jsp";
 				break;

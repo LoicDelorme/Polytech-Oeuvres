@@ -79,37 +79,41 @@ public class LoanArtworkController extends AbstractController {
 		String destinationPage = null;
 		switch (actionName) {
 			case OVERVIEW:
-				request.setAttribute("loanArtwork", this.loanArtworkDaoServices.get(request.getParameter("id")));
-				destinationPage = "/pages/loan-artworks/overview.jsp";
+				request.setAttribute("loanArtwork", this.loanArtworkDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+				destinationPage = "/WEB-INF/pages/loan-artworks/overview.jsp";
 				break;
 			case LIST:
 				request.setAttribute("loanArtworks", this.loanArtworkDaoServices.getAll());
-				destinationPage = "/pages/loan-artworks/list.jsp";
+				destinationPage = "/WEB-INF/pages/loan-artworks/list.jsp";
 				break;
 			case ADD_FORM:
-				destinationPage = "/pages/loan-artworks/addForm.jsp";
+				destinationPage = "/WEB-INF/pages/loan-artworks/add-form.jsp";
 				break;
 			case UPDATE_FORM:
-				destinationPage = "/pages/loan-artworks/updateForm.jsp";
+				request.setAttribute("loanArtwork", this.loanArtworkDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+				destinationPage = "/WEB-INF/pages/loan-artworks/update-form.jsp";
 				break;
 			case INSERT:
 				LoanArtwork loanArtworkToInsert = new LoanArtwork();
 				loanArtworkToInsert.setTitle(request.getParameter("title"));
 				loanArtworkToInsert.setDuration(Integer.parseInt(request.getParameter("duration")));
 				this.loanArtworkDaoServices.insert(loanArtworkToInsert);
+
 				request.setAttribute("message", "The loan artwork was successfully added!");
 				destinationPage = "/index.jsp";
 				break;
 			case UPDATE:
-				LoanArtwork loanArtworkToUpdate = this.loanArtworkDaoServices.get(request.getParameter("id"));
+				LoanArtwork loanArtworkToUpdate = this.loanArtworkDaoServices.get(Integer.parseInt(request.getParameter("id")));
 				loanArtworkToUpdate.setTitle(request.getParameter("title"));
 				loanArtworkToUpdate.setDuration(Integer.parseInt(request.getParameter("duration")));
 				this.loanArtworkDaoServices.update(loanArtworkToUpdate);
+
 				request.setAttribute("message", "The loan artwork was successfully updated!");
 				destinationPage = "/index.jsp";
 				break;
 			case DELETE:
-				this.loanArtworkDaoServices.delete(this.loanArtworkDaoServices.get(request.getParameter("id")));
+				this.loanArtworkDaoServices.delete(this.loanArtworkDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+
 				request.setAttribute("message", "The loan artwork was successfully deleted!");
 				destinationPage = "/index.jsp";
 				break;

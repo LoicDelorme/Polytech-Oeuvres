@@ -79,18 +79,19 @@ public class MemberController extends AbstractController {
 		String destinationPage = null;
 		switch (actionName) {
 			case OVERVIEW:
-				request.setAttribute("member", this.memberDaoServices.get(request.getParameter("id")));
-				destinationPage = "/pages/members/overview.jsp";
+				request.setAttribute("member", this.memberDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+				destinationPage = "/WEB-INF/pages/members/overview.jsp";
 				break;
 			case LIST:
 				request.setAttribute("members", this.memberDaoServices.getAll());
-				destinationPage = "/pages/members/list.jsp";
+				destinationPage = "/WEB-INF/pages/members/list.jsp";
 				break;
 			case ADD_FORM:
-				destinationPage = "/pages/members/addForm.jsp";
+				destinationPage = "/WEB-INF/pages/members/add-form.jsp";
 				break;
 			case UPDATE_FORM:
-				destinationPage = "/pages/members/updateForm.jsp";
+				request.setAttribute("member", this.memberDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+				destinationPage = "/WEB-INF/pages/members/update-form.jsp";
 				break;
 			case INSERT:
 				Member memberToInsert = new Member();
@@ -100,22 +101,25 @@ public class MemberController extends AbstractController {
 				memberToInsert.setZipcode(request.getParameter("zipcode"));
 				memberToInsert.setCity(request.getParameter("city"));
 				this.memberDaoServices.insert(memberToInsert);
+
 				request.setAttribute("message", "The member was successfully added!");
 				destinationPage = "/index.jsp";
 				break;
 			case UPDATE:
-				Member memberToUpdate = this.memberDaoServices.get(request.getParameter("id"));
+				Member memberToUpdate = this.memberDaoServices.get(Integer.parseInt(request.getParameter("id")));
 				memberToUpdate.setLastname(request.getParameter("lastname"));
 				memberToUpdate.setFirstname(request.getParameter("firstname"));
 				memberToUpdate.setAddress(request.getParameter("address"));
 				memberToUpdate.setZipcode(request.getParameter("zipcode"));
 				memberToUpdate.setCity(request.getParameter("city"));
+
 				this.memberDaoServices.update(memberToUpdate);
 				request.setAttribute("message", "The member was successfully updated!");
 				destinationPage = "/index.jsp";
 				break;
 			case DELETE:
-				this.memberDaoServices.delete(this.memberDaoServices.get(request.getParameter("id")));
+				this.memberDaoServices.delete(this.memberDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+
 				request.setAttribute("message", "The member was successfully deleted!");
 				destinationPage = "/index.jsp";
 				break;

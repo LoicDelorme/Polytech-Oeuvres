@@ -86,39 +86,45 @@ public class SaleArtworkController extends AbstractController {
 		String destinationPage = null;
 		switch (actionName) {
 			case OVERVIEW:
-				request.setAttribute("saleArtwork", this.saleArtworkDaoServices.get(request.getParameter("id")));
-				destinationPage = "/pages/sale-artworks/overview.jsp";
+				request.setAttribute("saleArtwork", this.saleArtworkDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+				destinationPage = "/WEB-INF/pages/sale-artworks/overview.jsp";
 				break;
 			case LIST:
 				request.setAttribute("saleArtworks", this.saleArtworkDaoServices.getAll());
-				destinationPage = "/pages/sale-artworks/list.jsp";
+				destinationPage = "/WEB-INF/pages/sale-artworks/list.jsp";
 				break;
 			case ADD_FORM:
-				destinationPage = "/pages/sale-artworks/addForm.jsp";
+				request.setAttribute("artworkStates", this.artworkStateDaoServices.getAll());
+				destinationPage = "/WEB-INF/pages/sale-artworks/add-form.jsp";
 				break;
 			case UPDATE_FORM:
-				destinationPage = "/pages/sale-artworks/updateForm.jsp";
+				request.setAttribute("saleArtwork", this.saleArtworkDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+				request.setAttribute("artworkStates", this.artworkStateDaoServices.getAll());
+				destinationPage = "/WEB-INF/pages/sale-artworks/update-form.jsp";
 				break;
 			case INSERT:
 				SaleArtwork saleArtworkToInsert = new SaleArtwork();
 				saleArtworkToInsert.setTitle(request.getParameter("title"));
-				saleArtworkToInsert.setState(this.artworkStateDaoServices.get(request.getParameter("artworkStateId")));
+				saleArtworkToInsert.setState(this.artworkStateDaoServices.get(Integer.parseInt(request.getParameter("artworkStateId"))));
 				saleArtworkToInsert.setPrice(Double.parseDouble(request.getParameter("price")));
 				this.saleArtworkDaoServices.insert(saleArtworkToInsert);
+
 				request.setAttribute("message", "The sale artwork was successfully added!");
 				destinationPage = "/index.jsp";
 				break;
 			case UPDATE:
-				SaleArtwork saleArtworkToUpdate = this.saleArtworkDaoServices.get(request.getParameter("id"));
+				SaleArtwork saleArtworkToUpdate = this.saleArtworkDaoServices.get(Integer.parseInt(request.getParameter("id")));
 				saleArtworkToUpdate.setTitle(request.getParameter("title"));
-				saleArtworkToUpdate.setState(this.artworkStateDaoServices.get(request.getParameter("artworkStateId")));
+				saleArtworkToUpdate.setState(this.artworkStateDaoServices.get(Integer.parseInt(request.getParameter("artworkStateId"))));
 				saleArtworkToUpdate.setPrice(Double.parseDouble(request.getParameter("price")));
 				this.saleArtworkDaoServices.update(saleArtworkToUpdate);
+
 				request.setAttribute("message", "The sale artwork was successfully updated!");
 				destinationPage = "/index.jsp";
 				break;
 			case DELETE:
-				this.saleArtworkDaoServices.delete(this.saleArtworkDaoServices.get(request.getParameter("id")));
+				this.saleArtworkDaoServices.delete(this.saleArtworkDaoServices.get(Integer.parseInt(request.getParameter("id"))));
+
 				request.setAttribute("message", "The sale artwork was successfully deleted!");
 				destinationPage = "/index.jsp";
 				break;
