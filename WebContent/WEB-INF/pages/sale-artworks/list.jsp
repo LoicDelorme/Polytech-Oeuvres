@@ -17,18 +17,23 @@
     </jsp:attribute>
     
     <jsp:attribute name="body_content">
-    	<table class="table">
+    	<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>Title</th>
+					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
 				<core:forEach items="${saleArtworks}" var="saleArtwork">
 					<tr>
-						<th scope="row">${saleArtwork.id}</th>
+						<td><a href="SaleArtworkController?action=overview&id=${saleArtwork.id}">${saleArtwork.id}</a></td>
 						<td>${saleArtwork.title}</td>
+						<td>
+							<a class="btn btn-warning" href="SaleArtworkController?action=updateForm&id=${saleArtwork.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
+							<a class="btn btn-danger" href="SaleArtworkController?action=delete&id=${saleArtwork.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
+						</td>
 					</tr>
 				</core:forEach>
 			</tbody>

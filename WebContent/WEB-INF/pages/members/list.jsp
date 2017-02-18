@@ -17,20 +17,25 @@
     </jsp:attribute>
     
     <jsp:attribute name="body_content">
-    	<table class="table">
+    	<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>Last Name</th>
 					<th>First Name</th>
+					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
 				<core:forEach items="${members}" var="member">
 					<tr>
-						<th scope="row">${member.id}</th>
+						<td><a href="MemberController?action=overview&id=${member.id}">${member.id}</a></td>
 						<td>${member.lastname}</td>
 						<td>${member.firstname}</td>
+						<td>
+							<a class="btn btn-warning" href="MemberController?action=updateForm&id=${member.id}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
+							<a class="btn btn-danger" href="MemberController?action=delete&id=${member.id}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
+						</td>
 					</tr>
 				</core:forEach>
 			</tbody>
