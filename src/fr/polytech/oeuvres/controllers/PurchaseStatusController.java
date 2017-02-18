@@ -16,7 +16,7 @@ import fr.polytech.oeuvres.services.PurchaseStatusDaoServices;
  * @author DELORME Loïc
  * @since 1.0.0
  */
-@WebServlet("/ArtworkStateController")
+@WebServlet("/PurchaseStatusController")
 public class PurchaseStatusController extends AbstractController {
 
 	/**
