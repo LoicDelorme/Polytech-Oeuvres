@@ -57,7 +57,7 @@ public class Owner implements Serializable {
 	/**
 	 * The sale artworks.
 	 */
-	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.ALL })
+	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE })
 	@JoinTable(name = "purchase", joinColumns = { @JoinColumn(name = "owner_id") }, inverseJoinColumns = { @JoinColumn(name = "sale_artwork_id") })
 	private List<SaleArtwork> saleArtworks = new ArrayList<SaleArtwork>();
 

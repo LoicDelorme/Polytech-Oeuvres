@@ -78,7 +78,7 @@ public class Member implements Serializable {
 	/**
 	 * The loan artworks.
 	 */
-	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.ALL })
+	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE })
 	@JoinTable(name = "loan", joinColumns = { @JoinColumn(name = "member_id") }, inverseJoinColumns = { @JoinColumn(name = "loan_artwork_id") })
 	private List<LoanArtwork> loanArtworks = new ArrayList<LoanArtwork>();
 

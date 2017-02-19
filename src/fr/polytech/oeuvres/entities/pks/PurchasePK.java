@@ -1,29 +1,18 @@
-package fr.polytech.oeuvres.entities;
+package fr.polytech.oeuvres.entities.pks;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import fr.polytech.oeuvres.entities.pks.PurchasePK;
+import fr.polytech.oeuvres.entities.Owner;
+import fr.polytech.oeuvres.entities.PurchaseStatus;
+import fr.polytech.oeuvres.entities.SaleArtwork;
 
 /**
- * This class represents a purchase entity.
+ * This class represents a purchase primary key.
  *
  * @author DELORME Loïc
  * @since 1.0.0
  */
-@Entity
-@Table(name = "purchase")
-@IdClass(PurchasePK.class)
-public class Purchase implements Serializable {
+public class PurchasePK implements Serializable {
 
 	/**
 	 * The serial version UID.
@@ -31,59 +20,24 @@ public class Purchase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The date.
-	 */
-	@NotNull
-	@Column(name = "purchase_date")
-	private LocalDate date;
-
-	/**
 	 * The status.
 	 */
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "purchase_status_id")
 	private PurchaseStatus status;
 
 	/**
 	 * The owner.
 	 */
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "owner_id")
 	private Owner owner;
 
 	/**
 	 * The sale artwork.
 	 */
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "sale_artwork_id")
 	private SaleArtwork saleArtwork;
 
 	/**
-	 * Create a purchase entity.
+	 * Create a purchase primary key.
 	 */
-	public Purchase() {
-	}
-
-	/**
-	 * Get the date.
-	 * 
-	 * @return The date.
-	 */
-	public LocalDate getDate() {
-		return this.date;
-	}
-
-	/**
-	 * Set the date.
-	 * 
-	 * @param date
-	 *            The date.
-	 */
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public PurchasePK() {
 	}
 
 	/**

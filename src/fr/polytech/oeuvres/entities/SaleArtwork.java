@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -63,7 +64,7 @@ public class SaleArtwork implements Serializable {
 	/**
 	 * The owners.
 	 */
-	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "saleArtworks")
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "saleArtworks", cascade = { CascadeType.MERGE })
 	private List<Owner> owners = new ArrayList<Owner>();
 
 	/**

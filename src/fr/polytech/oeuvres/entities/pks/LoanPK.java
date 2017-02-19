@@ -1,29 +1,18 @@
-package fr.polytech.oeuvres.entities;
+package fr.polytech.oeuvres.entities.pks;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import fr.polytech.oeuvres.entities.pks.LoanPK;
+import fr.polytech.oeuvres.entities.LoanArtwork;
+import fr.polytech.oeuvres.entities.Member;
 
 /**
- * This class represents a loan entity.
+ * This class represents a loan primary key.
  *
  * @author DELORME Loïc
  * @since 1.0.0
  */
-@Entity
-@Table(name = "loan")
-@IdClass(LoanPK.class)
-public class Loan implements Serializable {
+public class LoanPK implements Serializable {
 
 	/**
 	 * The serial version UID.
@@ -33,37 +22,22 @@ public class Loan implements Serializable {
 	/**
 	 * The date.
 	 */
-	@NotNull
-	@Column(name = "loan_date")
 	private LocalDate date;
-
-	/**
-	 * The duration.
-	 */
-	@NotNull
-	@Column(name = "loan_duration")
-	private int duration;
 
 	/**
 	 * The member.
 	 */
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "member_id")
 	private Member member;
 
 	/**
 	 * The loan artwork.
 	 */
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "loan_artwork_id")
 	private LoanArtwork loanArtwork;
 
 	/**
-	 * Create a loan entity.
+	 * Create a loan primary key.
 	 */
-	public Loan() {
+	public LoanPK() {
 	}
 
 	/**
@@ -83,25 +57,6 @@ public class Loan implements Serializable {
 	 */
 	public void setDate(LocalDate date) {
 		this.date = date;
-	}
-
-	/**
-	 * Get the duration.
-	 * 
-	 * @return The duration.
-	 */
-	public int getDuration() {
-		return this.duration;
-	}
-
-	/**
-	 * Set the duration.
-	 * 
-	 * @param duration
-	 *            The duration.
-	 */
-	public void setDuration(int duration) {
-		this.duration = duration;
 	}
 
 	/**

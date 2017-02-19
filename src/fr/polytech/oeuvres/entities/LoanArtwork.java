@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -54,7 +55,7 @@ public class LoanArtwork implements Serializable {
 	/**
 	 * The members.
 	 */
-	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "loanArtworks")
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "loanArtworks", cascade = { CascadeType.MERGE })
 	private List<Member> members = new ArrayList<Member>();
 
 	/**
