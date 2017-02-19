@@ -80,7 +80,7 @@ public class OwnerController extends AbstractController {
 		switch (actionName) {
 			case OVERVIEW:
 				request.setAttribute("owner", this.ownerDaoServices.get(Integer.parseInt(request.getParameter("id"))));
-				destinationPage = "/WEB-INF/pages/pages/owners/overview.jsp";
+				destinationPage = "/WEB-INF/pages/owners/overview.jsp";
 				break;
 			case LIST:
 				request.setAttribute("owners", this.ownerDaoServices.getAll());
