@@ -52,16 +52,10 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li>
-                        	<a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li>
-                        	<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
                         <li class="divider"></li>
-                        <li>
-                        	<a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -69,73 +63,61 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
+                        <li><a href="index.jsp"><i class="glyphicon glyphicon-list-alt"></i> Features</a></li>
                         <li>
-                            <a href="index.jsp"><i class="glyphicon glyphicon-list-alt"></i> Features</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="glyphicon glyphicon-user"></i> Member<span class="fa arrow"></span></a>
+                            <a href="#"><i class="glyphicon glyphicon-user"></i> Members<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="MemberController?action=list">List all members</a>
-                                </li>
-                                <li>
-                                    <a href="MemberController?action=addForm">Add a new member</a>
-                                </li>
+                                <li><a href="MemberController?action=list">List all members</a></li>
+                                <li><a href="MemberController?action=addForm">Add a new member</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-user"></i> Owner<span class="fa arrow"></span></a>
+                            <a href="#"><i class="glyphicon glyphicon-user"></i> Owners<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="OwnerController?action=list">List all owners</a>
-                                </li>
-                                <li>
-                                    <a href="OwnerController?action=addForm">Add a new owner</a>
-                                </li>
+                                <li><a href="OwnerController?action=list">List all owners</a></li>
+                                <li><a href="OwnerController?action=addForm">Add a new owner</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-book"></i> Loan Artwork<span class="fa arrow"></span></a>
+                            <a href="#"><i class="glyphicon glyphicon-book"></i> Loan Artworks<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="LoanArtworkController?action=list">List all loan artworks</a>
-                                </li>
-                                <li>
-                                    <a href="LoanArtworkController?action=addForm">Add a new loan artwork</a>
-                                </li>
+                                <li><a href="LoanArtworkController?action=list">List all loan artworks</a></li>
+                                <li><a href="LoanArtworkController?action=addForm">Add a new loan artwork</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-book"></i> Sale Artwork<span class="fa arrow"></span></a>
+                            <a href="#"><i class="glyphicon glyphicon-book"></i> Sale Artworks<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="SaleArtworkController?action=list">List all sale artworks</a>
-                                </li>
-                                <li>
-                                    <a href="SaleArtworkController?action=addForm">Add a new sale artwork</a>
-                                </li>
+                                <li><a href="SaleArtworkController?action=list">List all sale artworks</a></li>
+                                <li><a href="SaleArtworkController?action=addForm">Add a new sale artwork</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-tasks"></i> Artwork State<span class="fa arrow"></span></a>
+                            <a href="#"><i class="glyphicon glyphicon-tasks"></i> Artwork States<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="ArtworkStateController?action=list">List all artwork states</a>
-                                </li>
-                                <li>
-                                    <a href="ArtworkStateController?action=addForm">Add a new artwork state</a>
-                                </li>
+                                <li><a href="ArtworkStateController?action=list">List all artwork states</a></li>
+                                <li><a href="ArtworkStateController?action=addForm">Add a new artwork state</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-tasks"></i> Purchase Status<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="PurchaseStatusController?action=list">List all purchase status</a>
-                                </li>
-                                <li>
-                                    <a href="PurchaseStatusController?action=addForm">Add a new purchase status</a>
-                                </li>
+                                <li><a href="PurchaseStatusController?action=list">List all purchase status</a></li>
+                                <li><a href="PurchaseStatusController?action=addForm">Add a new purchase status</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-tags"></i> Loans<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="LoanController?action=list">List all loans</a></li>
+                                <li><a href="LoanController?action=addForm">Add a new loan</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-tags"></i> Purchases<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="PurchaseController?action=list">List all purchases</a></li>
+                                <li><a href="PurchaseController?action=addForm">Add a new purchase</a></li>
                             </ul>
                         </li>
                     </ul>
