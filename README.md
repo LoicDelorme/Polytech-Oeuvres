@@ -1,6 +1,6 @@
 # Polytech-Oeuvres
 
-<b>Information</b>
+<b>General Information</b>
 <br>
 <table>
   <tr>
