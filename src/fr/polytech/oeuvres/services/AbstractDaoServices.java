@@ -71,7 +71,7 @@ public class AbstractDaoServices<T> implements DaoServices<T> {
 		Session session = this.databaseManager.getSession();
 
 		session.beginTransaction();
-		session.persist(object);
+		session.saveOrUpdate(object);
 		session.getTransaction().commit();
 
 		session.close();
