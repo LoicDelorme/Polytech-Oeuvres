@@ -4,7 +4,7 @@
 <br>
 <table>
   <tr>
-    <td><b>Langage</b></td>
+    <td><b>Language</b></td>
     <td>Java 8</td>
   </tr>
   <tr>
@@ -28,8 +28,6 @@
     </td>
   </tr>
 </table>
-
-<br>
 
 <b>Screenshot(s)</b>
 <br>
