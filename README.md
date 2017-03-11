@@ -19,6 +19,7 @@
       <ul>
         <li>hibernate-entitymanager</li>
         <li>hibernate-validator</li>
+        <li>hibernate-jpa-2.1-api</li>
         <li>javax.el-api</li>
         <li>javax.el</li>
         <li>mysql-connector-java</li>

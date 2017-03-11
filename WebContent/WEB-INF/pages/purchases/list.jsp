@@ -23,7 +23,7 @@
 					<th>Details</th>
 					<th>Owner</th>
 					<th>Sale Artwork</th>
-					<th>Purchase Date</th>
+					<th>Purchase Status</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
